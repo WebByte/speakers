@@ -31,7 +31,8 @@ class UserProfileLoginView(APIView):
 
 class UserProfileLogoutView(APIView):
     def post(self, request):
-        user = request.user.logout()
+        print(request.headers)
+        user = request.user_profile.logout()
         user.auth_token.delete()
 
         return Response(
