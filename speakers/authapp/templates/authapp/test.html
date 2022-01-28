@@ -1,0 +1,21 @@
+{% extends 'authapp/base.html' %}
+{% load static %}
+{% block title %}
+Обратная связь
+{% endblock %}
+
+{% block content %}
+<h1>Обратная связь</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <br>
+        <input class="form-control" type="submit" value="регистрация_send"/>
+    </form>
+    <br>
+    <button class="btn btn-link form-control">
+        <a href="{% url 'auth:login' %}">
+            вход
+        </a>
+    </button>
+{% endblock %}

@@ -1,9 +1,15 @@
+from datetime import timedelta
+
 from django.db import models
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser, User
 from django.contrib.auth.models import PermissionsMixin
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from django.utils.timezone import now
 
 from rest_framework.authtoken.models import Token as BaseToken
 
+from workroomsapp.models import Person
 from .managers import UserManager
 
 
@@ -34,6 +40,20 @@ class User(AbstractUser, PermissionsMixin):
         self.save()
         return self
 
+    def is_activation_key_expired(self):
+        now_date = now() - timedelta(hours=24)
+        if now_date <= self.activation_key_expires:
+            return False
+        return True
+
+    @receiver(post_save, sender=User)
+    def create_user_profile(sender, instance, created, **kwargs):
+        if created:
+            User.objects.create(user=instance)
+
+    @receiver(post_save, sender=User)
+    def save_user_profile(sender, instance, **kwargs):
+        instance.user.save()
 
 class Token(BaseToken):
     user = models.OneToOneField(
