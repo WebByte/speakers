@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSearchParams, useNavigate } from 'react-router-dom'
 // import '~/styles/ConfirmEmail.styl'
-import { baseURL } from '~/ProjectConstants'
+import { baseURL } from '~/scripts/ProjectConstants'
 
 export default function ConfirmEmail() {
   const navigate = useNavigate()

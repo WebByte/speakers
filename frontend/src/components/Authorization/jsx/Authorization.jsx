@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import eyeOpen from '~/assets/img/eyeOpen.svg'
 import eyeClose from '~/assets/img/eyeClose.svg'
 import 'regenerator-runtime/runtime'
-import { baseURL } from '~/ProjectConstants'
+import { baseURL } from '~/scripts/ProjectConstants'
 
 export default function Authorization() {
   const navigate = useNavigate() //Для перехода

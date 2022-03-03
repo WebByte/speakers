@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom'
 import { BrowserRouter } from 'react-router-dom'
 import { combineReducers, createStore } from 'redux'
 import { Provider } from 'react-redux'
-import reportWebVitals from './reportWebVitals'
+import reportWebVitals from './scripts/reportWebVitals'
 import App from '~/App'
-import calendar from '~/components/WorkRooms/Calendar/redux/reducers/calendar'
-import dateDetail from '~/components/WorkRooms/DateDetail/redux/reducers/dateDetail'
-import '~/index.styl'
+import calendar from '~@/WorkRooms/Calendar/redux/reducers/calendar'
+import dateDetail from '~@/WorkRooms/DateDetail/redux/reducers/dateDetail'
+import '~/styles/index.styl'
 
 console.clear()
 

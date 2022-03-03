@@ -9,7 +9,8 @@ import ContinueRegistration from '~@/Authorization/jsx/ContinueRegistration'
 import ConfirmEmail from '~@/Authorization/jsx/ConfirmEmail'
 import UserBasicInfo from '~@/UserArea/jsx/UserBasicInfo'
 import ChooseRole from '~@/ChooseRoleSteps/jsx/ChooseRole'
-import FullCalendar from "./components/WorkRooms/FullCalendar";
+import FullCalendar from '~@/WorkRooms/FullCalendar'
+import CreateEvent from '~@/CreateEvent/CreateEvent'
 
 function App() {
   //   const isAuthentikated = !!token;
@@ -28,6 +29,7 @@ function App() {
           <Route path='/user_basic-info' element={<UserBasicInfo />} />
           <Route path='/user_choose-role' element={<ChooseRole />} />
           <Route path='/user_profile' element={<FullCalendar />} />
+          <Route path='/create_event' element={<CreateEvent />} />
           <Route path='/change_password' element={<ChangePassword />} />
           <Route path='*' element={<NotFoundPage />} />
         </Routes>
