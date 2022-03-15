@@ -1,88 +1,13 @@
-.wrapper
-  display grid
-  grid-auto-flow row dense
-  grid-auto-columns 1fr
-  grid-auto-rows 1fr
-  grid-template-areas '. heading' '. subheading' 'cover-l cover' 'domain-l domain' 'date-l date' 'time-l time' 'workspace-l workspace' 'address-l address' 'equip-l equip' 'desc-l desc' 'fee-l fee' '. submit' '. .' '. .'
-  grid-template-columns 2fr 3fr
-  grid-template-rows repeat(2, 0.1fr) 0.5fr repeat(4, 0.1fr) repeat(2, 0.3fr) 5fr repeat(4, 0.1fr)
-  gap 1em 2em
-
-.heading
-  grid-area heading
-
-.subheading
-  grid-area subheading
-
-.domain-l
-  grid-area domain-l
-
-.domain
-  grid-area domain
-
-.cover-l
-  grid-area cover-l
-
-.cover
-  grid-area cover
-
-.date-l
-  grid-area date-l
-
-.date
-  grid-area date
-
-.time-l
-  grid-area time-l
-
-.time
-  grid-area time
-
-.workspace-l
-  grid-area workspace-l
-
-.workspace
-  grid-area workspace
-
-.address-l
-  grid-area address-l
-
-.address
-  grid-area address
-
-.equip-l
-  grid-area equip-l
-
-.equip
-  grid-area equip
-
-.desc-l
-  grid-area desc-l
-
-.desc
-  grid-area desc
-
-.fee-l
-  grid-area fee-l
-
-.fee
-  grid-area fee
-
-.submit
-  grid-area submit
-
-.label
-  justify-self right
-  align-self end
-  font-size px2rem(12px)
+@import './parts/grid.styl'
+@import './parts/general.styl'
 
 .main-heading
-  font-size px2rem(18px)
+  font-size $fsBig
   color $main-blue
   font-weight 700
 
 .main-subheading
-  font-size px2rem(14px)
+  font-size $fsNorm
   font-weight normal
 
 .cover
@@ -102,15 +27,18 @@
     border-radius $bdRad
 
 .domain-list
-  border-radius $bdRad
-  background-color $main-white
-  height 2rem
-  width px2rem(250px)
-  border solid $add-grey $bdWid
-  appearance none
-  background-repeat no-repeat
-  background-position 95%
+  align-items start
+  font-size $fsNorm
 
-  &:first-child
-    color $add-darkGrey
-    padding-left 1rem
+  select
+    width px2rem(250px)
+    background-position 95%
+
+.time
+  select
+    width px2rem(84px)
+    background-position 85%
+
+.fee
+  input
+    margin 1rem 0 0

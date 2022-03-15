@@ -28,34 +28,122 @@ function CreateEvent() {
           />
         </div>
         <div className='domain-l label'>Тематика:</div>
-        <div className='domain'>
-          <select
-            className='domain-list'
-            style={{ backgroundImage: `url(${downArrow})` }}
-          >
-            <option value='' disabled selected>
-              Выберете тематику
-            </option>
-            <option value='opt1'>opt1</option>
-            <option value='opt2'>opt2</option>
-            <option value='opt3'>opt3</option>
-          </select>
+        <div className='domains '>
+          <div className='domain-list flex'>
+            <select
+              className='selector'
+              style={{ backgroundImage: `url(${downArrow})` }}
+            >
+              <option value='' disabled selected>
+                Выберете тематику
+              </option>
+              <option value='opt1'>opt1</option>
+              <option value='opt2'>opt2</option>
+              <option value='opt3'>opt3</option>
+            </select>
+            <div className='pill pill-grey'>Project8</div>
+            <div className='pill pill-grey'>Project8</div>
+            <div className='pill pill-grey'>Project8</div>
+            <div className='pill pill-grey'>Project8</div>
+            <div className='pill pill-grey'>Project8</div>
+            <div className='pill pill-grey'>Project8</div>
+            <div className='pill pill-grey'>Project8</div>
+          </div>
         </div>
-        <div className='date-l label'>sdfsdf</div>
-        <div className='date'>sdfsdf</div>
-        <div className='time-l label'>sdfsdf</div>
-        <div className='time'>sdfsdf</div>
-        <div className='workspace-l label'>sdfsdf</div>
-        <div className='workspace'>sdfsdf</div>
-        <div className='address-l label'>sdfsdf</div>
-        <div className='address'>sdfsdf</div>
-        <div className='equip-l label'>sdfsdf</div>
-        <div className='equip'>sdfsdf</div>
-        <div className='desc-l label'>sdfsdf</div>
-        <div className='desc'>sdfsdf</div>
-        <div className='fee-l label'>sdfsdf</div>
-        <div className='fee'>sdfsdf</div>
-        <div className='submit'>sdfsdf</div>
+        <div className='topic-l label'>Тема лекции:</div>
+        <div className='topic flex'>
+          <input type='text' className='text-input' placeholder='Topic' />
+        </div>
+        <div className='type-l label'>Тип лекции:</div>
+        <div className='type flex'>
+          <div className='date-comp pill '>Онлайн</div>
+          <div className='date-comp pill pill-blue'>Оффлайн</div>
+          <div className='date-comp pill '>Гибрид</div>
+        </div>
+        <div className='date-l label'>Дата:</div>
+        <div className='date flex'>
+          <div className='date-comp pill pill-grey'>Дата</div>
+          <div className='date-link'>Link</div>
+        </div>
+        <div className='time-l label'>Время:</div>
+        <div className='time flex'>
+          <span>
+            c{' '}
+            <select
+              className='selector'
+              style={{ backgroundImage: `url(${downArrow})` }}
+            >
+              <option value='' disabled selected>
+                Now
+              </option>
+              <option value='opt1'>opt1</option>
+              <option value='opt2'>opt2</option>
+              <option value='opt3'>opt3</option>
+            </select>
+          </span>
+          <span>
+            {' '}
+            до{' '}
+            <select
+              className='selector'
+              style={{ backgroundImage: `url(${downArrow})` }}
+            >
+              <option value='' disabled selected>
+                Then
+              </option>
+              <option value='opt1'>opt1</option>
+              <option value='opt2'>opt2</option>
+              <option value='opt3'>opt3</option>
+            </select>
+          </span>
+        </div>
+        <div className='workspace-l label'>Помещение для лекции:</div>
+        <div className='workspace flex'>
+          <div className='date-comp pill '>Есть</div>
+          <div className='date-comp pill pill-blue'>Нет</div>
+        </div>
+        <div className='address-l label'>Адрес:</div>
+        <div className='address flex'>
+          <textarea
+            name='lecture-address'
+            rows='3'
+            className='text-area'
+            placeholder='Введите адрес помещения для лекции'
+          ></textarea>
+        </div>
+        <div className='equip-l label'>Оборудование:</div>
+        <div className='equip flex'>
+          <textarea
+            name='lecture-equipment'
+            rows='3'
+            className='text-area'
+            placeholder='Перечислите имеющееся для лекции оборудование'
+          ></textarea>
+        </div>
+        <div className='desc-l label'>Описание:</div>
+        <div className='desc flex'>
+          <textarea
+            name='lecture-desc'
+            rows='5'
+            className='text-area'
+            placeholder='Опишите лекцию'
+          ></textarea>
+        </div>
+        <div className='fee-l label'>Цена лекции:</div>
+        <div className='fee '>
+          <div className='flex'>
+            <div className='date-comp pill  pill-blue'>Платно</div>
+            <div className='date-comp pill'>Бесплатно</div>
+          </div>
+          <input
+            type='text'
+            className='text-input'
+            placeholder='Укажите цену'
+          />
+        </div>
+        <div className='submit'>
+          <button className='big-button'>Создать</button>
+        </div>
       </div>
     </>
   )
