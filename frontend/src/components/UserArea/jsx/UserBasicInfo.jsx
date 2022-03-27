@@ -12,8 +12,9 @@ import { baseURL } from '~/ProjectConstants'
 
 
 export default function UserBasicInfo() {
-  //отображение выбранного аватара
-  const [avatarPreview, setAvatarPreview] = useState(null) //выбранный файл для отправки на сервер
+  //отображение выбранного аватара 
+  // (тут надо поменять, если аватар отдельно отправляется на сервер)
+  const [avatarPreview, setAvatarPreview] = useState(null) 
   console.log('avatarPreview: ', avatarPreview)
   
   const handleAvatarPreview = e => {
@@ -77,6 +78,7 @@ export default function UserBasicInfo() {
     }
   }
 
+  //временно для демо
   let citySelect = {
     class: 'city-select',
     default: 'Ваш город',

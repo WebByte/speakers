@@ -17,6 +17,7 @@ import Header from "~@/Layout/jsx/Header"
 import CreateEvent from "~@/CreateEvent/jsx/CreateEvent"
 import  RequireAuth  from './hoc/RequireAuth'
 import {AuthProvider} from './hoc/AuthProvider';
+import AvatarEditing from "./components/UserArea/jsx/AvatarEditing";
 
 function App() {
  
@@ -41,6 +42,7 @@ function App() {
                 <Workroom />
               </RequireAuth>
             } />
+            <Route path='/edit-avatar' element={<AvatarEditing />} />
             <Route path='/change_password' element={<ChangePassword />} />
             <Route path='*' element={<NotFoundPage />} />
           </Routes>
