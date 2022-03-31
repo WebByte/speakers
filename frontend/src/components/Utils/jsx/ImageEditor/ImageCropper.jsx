@@ -13,17 +13,11 @@ function ImageCropper() {
   const [rotation, setRotation] = useState(0) //number in degree 
   const [croppedAreaPixels, setCroppedAreaPixels] = useState(null)
   const [croppedImage, setCroppedImage] = useState(null)
-  
-  const onCropChange = (crop) => {
-    setCrop(crop)
-  }
+  const [croppedArea, setCroppedArea] = useState(null);
 
+  
   const onZoomChange = (zoom) => {
     setZoom(zoom)
-  }
-  
-  const onRotationChange = (rotation) => {
-    setRotation(rotation)
   }
   
   const rotateToLeft = () => {
@@ -37,10 +31,20 @@ function ImageCropper() {
   const onCropComplete = useCallback((croppedArea, croppedAreaPixels) => {
     setCroppedAreaPixels(croppedAreaPixels)
   }, [])
+
+  const showCroppedImage = useCallback(async () => {
+    try {
+      const croppedImage = await getCroppedImg( image, croppedAreaPixels, rotation)
+      console.log('donee: ', { croppedImage })
+      setCroppedImage(croppedImage)
+    } catch (e) {
+      console.error(e)
+    }
+  }, [croppedAreaPixels, rotation])
   
-  const onCrop = async () => {
+ /* const onCrop = async () => {
     const croppedImageUrl = await getCroppedImg(imageUrl, croppedAreaPixels)
-  }
+  }*/
   
   return(
     <>
@@ -56,17 +60,20 @@ function ImageCropper() {
           rotation={rotation}
           cropShape="round"
           showGrid={false}
-          onCropChange={onCropChange}
-          onZoomChange={onZoomChange}
-          onRotationChange={onRotationChange}
+          onCropChange={setCrop}
+          onZoomChange={setZoom}
+          onRotationChange={setRotation}
           onCropComplete={onCropComplete}
           disableAutomaticStylesInjection={true}
           zoomWithScroll={false}
+          onCropAreaChange={(croppedArea) => {
+            setCroppedArea(croppedArea);
+          }}
         />
       </div>
       <div className="controls">
         <div className="control-area rotation-area">
-          <img 
+          <img
             src={rotateLeft}
             onClick={rotateToLeft}/>
           <img 
@@ -88,7 +95,10 @@ function ImageCropper() {
         <div className="control-area">
           <button 
             className="btn"
-            onClick={onCrop}>Сохранить изменения</button>
+            onClick={showCroppedImage}>Сохранить изменения</button>
+        </div>
+        <div>
+          <img src={croppedArea}/>
         </div>
       </div>
     </>
